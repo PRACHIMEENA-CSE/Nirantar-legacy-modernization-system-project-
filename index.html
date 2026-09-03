@@ -1,0 +1,83 @@
+<!-- 
+  NIRANTAR FRONTEND LAYOUT
+  DESIGN BY: CSE Class of 2030 UI Lead
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirantar Control Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-container">
+    <!-- Left Navigation Sidebar -->
+    <aside class="sidebar">
+        <div class="brand">
+            <h2>NIRANTAR</h2>
+            <span>Migration Control</span>
+        </div>
+        <nav class="nav-menu">
+            <button class="nav-item">📊 Dashboard</button>
+            <button class="nav-item">👤 Patient Explorer</button>
+            <button class="nav-item active">🔍 Validation Center</button>
+            <button class="nav-item">🧪 Simulation Lab</button>
+            <button class="nav-item">🛡️ Safety Engine</button>
+        </nav>
+        <div class="sidebar-footer">
+            <p>Environment: <strong class="green-glow">PROD</strong></p>
+        </div>
+    </aside>
+
+    <!-- Main Right Content Screen -->
+    <main class="main-content">
+        <header class="content-header">
+            <h1>Validation Center</h1>
+            <p>Side-by-side record comparison: Legacy vs Modern schema diff</p>
+        </header>
+
+        <!-- Patient Selection Dropdown Menu -->
+        <section class="selector-section">
+            <label for="patient-selector">Select Ingestion Data Batch:</label>
+            <select id="patient-selector" onchange="runValidationTest()">
+                <option value="record_pass">PT-001234 (Marcus A. Chen) - Sync Successful</option>
+                <option value="record_fail">PT-082847 (Priya R. Sharma) - Data Mismatch</option>
+            </select>
+        </section>
+
+        <!-- Side-by-Side Data Comparison Grid -->
+        <div class="comparison-grid">
+            <!-- Left Data Column: Old Hospital Layout -->
+            <div class="data-card legacy-box">
+                <h3>LEGACY RECORD (HOSP-OLD)</h3>
+                <div class="data-line"><span>PID:</span> <strong id="old-pid">--</strong></div>
+                <div class="data-line"><span>PT_NM:</span> <strong id="old-name">--</strong></div>
+                <div class="data-line"><span>AGE_YRS:</span> <strong id="old-age">--</strong></div>
+                <div class="data-line"><span>DX:</span> <strong id="old-dx">--</strong></div>
+            </div>
+
+            <!-- Right Data Column: New Hospital Layout -->
+            <div class="data-card modern-box">
+                <h3>MODERN RECORD (HOSP-NEW)</h3>
+                <div class="data-line"><span>patient_id:</span> <strong id="new-pid">--</strong></div>
+                <div class="data-line"><span>name:</span> <strong id="new-name">--</strong></div>
+                <div class="data-line"><span>age:</span> <strong id="new-age">--</strong></div>
+                <div class="data-line"><span>diagnosis:</span> <strong id="new-diagnosis">--</strong></div>
+            </div>
+        </div>
+
+        <!-- Automated Status Output Banner -->
+        <div id="decision-banner" class="decision-banner text-center">
+            <h3>AUTOMATED DECISION PIPELINE:</h3>
+            <p id="action-message">Evaluating incoming record streams...</p>
+        </div>
+    </main>
+</div>
+
+<!-- This line fixes Bug 1 by telling CodePen to read your JavaScript file -->
+<script src="script.js"></script>
+
+</body>
+</html>
