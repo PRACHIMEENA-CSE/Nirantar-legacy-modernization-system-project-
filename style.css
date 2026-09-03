@@ -1,0 +1,107 @@
+/* Premium Glassmorphic Cyberpunk Theme Upgrade */
+:root {
+    --bg-main: #080c14;
+    --bg-sidebar: #0f1624;
+    --bg-card: rgba(31, 41, 55, 0.65); /* Glass opacity */
+    --border-color: rgba(255, 255, 255, 0.08);
+    --text-muted: #9ca3af;
+    --text-light: #f3f4f6;
+    --neon-green: #00ffaa;
+    --neon-red: #ff3366;
+    --neon-blue: #00e1ff;
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-main);
+    background-image: radial-gradient(circle at 80% 20%, rgba(0, 225, 255, 0.05), transparent 40%);
+    color: var(--text-light);
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Glass Sidebar Styling */
+.sidebar {
+    width: 250px;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+}
+
+.brand h2 { 
+    margin: 0; font-size: 1.5rem; font-weight: 800; letter-spacing: 2px;
+    background: linear-gradient(to right, #ffffff, var(--neon-blue));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.brand span { font-size: 0.75rem; color: var(--neon-blue); letter-spacing: 1px; font-weight: 600; }
+
+.nav-menu { margin-top: 40px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1; }
+.nav-item {
+    background: none; border: none; color: var(--text-muted); text-align: left;
+    padding: 14px 16px; font-size: 0.9rem; border-radius: 8px; cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-item.active, .nav-item:hover { 
+    background: rgba(255, 255, 255, 0.03); color: var(--text-light);
+    box-shadow: inset 4px 0 0 var(--neon-blue); padding-left: 20px;
+}
+
+.sidebar-footer { font-size: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 20px; color: var(--text-muted); }
+.green-glow { color: var(--neon-green); text-shadow: 0 0 10px rgba(0, 255, 170, 0.6); }
+
+/* Main Section Layout */
+.main-content { flex-grow: 1; padding: 40px; display: flex; flex-direction: column; gap: 24px; }
+.content-header h1 { margin: 0; font-size: 2.2rem; font-weight: 800; letter-spacing: -0.5px; }
+.content-header p { color: var(--text-muted); margin-top: 6px; font-size: 1rem; }
+
+.selector-section { 
+    background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    backdrop-filter: blur(12px); border: 1px solid var(--border-color);
+    padding: 18px 24px; border-radius: 12px; box-shadow: var(--glass-shadow);
+}
+select { 
+    background-color: #111827; color: var(--text-light); border: 1px solid rgba(255,255,255,0.1); 
+    padding: 10px 16px; border-radius: 8px; margin-left: 12px; cursor: pointer; outline: none; font-weight: 500;
+}
+
+/* Glass Card Grid */
+.comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.data-card { 
+    background: var(--bg-card); backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color); border-radius: 14px; padding: 24px;
+    box-shadow: var(--glass-shadow); transition: transform 0.3s ease;
+}
+.data-card:hover { transform: translateY(-2px); }
+.data-card h3 { margin-top: 0; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; color: var(--text-muted); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 12px; }
+.data-line { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px dashed rgba(255, 255, 255, 0.04); }
+.data-line span { font-family: 'Fira Code', monospace; color: var(--text-muted); font-size: 0.9rem; }
+.data-line strong { font-size: 0.95rem; }
+
+/* Error Animations */
+.error-highlight { 
+    background-color: rgba(255, 51, 102, 0.15); color: #ff668f; 
+    padding: 4px 10px; border-radius: 6px; font-weight: bold;
+    border: 1px solid rgba(255, 51, 102, 0.3); box-shadow: 0 0 15px rgba(255, 51, 102, 0.2);
+}
+
+/* Output Decision Banner Styling */
+.decision-banner { 
+    padding: 24px; border-radius: 14px; margin-top: 10px; text-align: center;
+    backdrop-filter: blur(16px); box-shadow: var(--glass-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid var(--border-color);
+}
+.banner-pass { 
+    border-color: var(--neon-green); background: linear-gradient(135deg, rgba(0, 255, 170, 0.07), transparent);
+    color: var(--neon-green); box-shadow: 0 0 25px rgba(0, 255, 170, 0.1);
+}
+.banner-fail { 
+    border-color: var(--neon-red); background: linear-gradient(135deg, rgba(255, 51, 102, 0.07), transparent);
+    color: var(--neon-red); box-shadow: 0 0 25px rgba(255, 51, 102, 0.1);
+}
